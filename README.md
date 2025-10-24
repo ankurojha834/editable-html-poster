@@ -12,7 +12,7 @@ A professional Next.js application that allows users to visually edit HTML poste
 
 ## 📋 Table of Contents
 
-- [Features](#features)
+- [Features](features)
 - [Tech Stack](#tech-stack)
 - [Setup Instructions](#setup-instructions)
 - [Architecture](#architecture)
