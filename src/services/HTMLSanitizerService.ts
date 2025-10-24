@@ -7,16 +7,16 @@
  * - Interface Segregation: Provides focused sanitization interface
  */
 
-import DOMPurify from 'dompurify';
+import DOMPurify, { Config } from 'dompurify';
 
 export interface ISanitizerService {
   sanitize(html: string): string;
 }
 
 export class HTMLSanitizerService implements ISanitizerService {
-  private config: DOMPurify.Config;
+  private config: Config;
 
-  constructor(customConfig?: DOMPurify.Config) {
+  constructor(customConfig?: Config) {
     this.config = customConfig || {
       ALLOWED_TAGS: [
         'div', 'p', 'span', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6',
@@ -52,7 +52,7 @@ export class HTMLSanitizerService implements ISanitizerService {
    */
   private basicSanitize(html: string): string {
     // Remove script tags
-    let sanitized = html.replace(/<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>/gi, '');
+    let sanitized = html.replace(/<script\b[^<](?:(?!<\/script>)<[^<])*<\/script>/gi, '');
     
     // Remove event handlers
     sanitized = sanitized.replace(/\s*on\w+\s*=\s*["'][^"']*["']/gi, '');
@@ -64,7 +64,7 @@ export class HTMLSanitizerService implements ISanitizerService {
   /**
    * Updates sanitizer configuration
    */
-  updateConfig(newConfig: Partial<DOMPurify.Config>): void {
+  updateConfig(newConfig: Partial<Config>): void {
     this.config = { ...this.config, ...newConfig };
   }
 }
