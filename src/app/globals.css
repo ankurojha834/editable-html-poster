@@ -3,14 +3,14 @@
 @tailwind utilities;
 
 :root {
-  --background: #b2ebf2; /* slightly darker light cyan for light mode */
-  --foreground: #121212; /* darker text */
+  --background: #b2ebf2; /* light mode can stay soft cyan */
+  --foreground: #121212; /* dark text for light mode */
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #001f3f; /* very dark navy/blue */
-    --foreground: #66d9ef; /* brighter cyan for contrast */
+    --background: #000814; /* almost black with deep navy hint */
+    --foreground: #4fd1e0; /* bright cyan/teal for contrast */
   }
 }
 
