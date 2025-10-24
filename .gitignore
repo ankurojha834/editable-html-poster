@@ -1,0 +1,27 @@
+# Create or update .gitignore
+@"
+# Dependencies
+node_modules/
+package-lock.json
+
+# Next.js build output
+.next/
+out/
+
+# Production build
+build/
+dist/
+
+# Misc
+.DS_Store
+*.log
+.env
+.env.local
+.env*.local
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+"@ | Out-File -FilePath .gitignore -Encoding utf8
